@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.HttpsURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -47,11 +47,11 @@ public class SlackApi {
     }
 
     private String send(JsonObject message) {
-        HttpURLConnection connection = null;
+        HttpsURLConnection connection = null;
         try {
             // Create connection
             final URL url = new URL(this.service);
-            connection = (HttpURLConnection) url.openConnection();
+            connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod(POST);
             connection.setConnectTimeout(timeout);
             connection.setUseCaches(false);
